@@ -1,0 +1,207 @@
+/* =========================================
+   VARIABLES Y BASE
+   ========================================= */
+:root {
+    --rosa-oscuro: #8e5d5d;
+    --rosa-claro: #d8a7a7;
+    --fondo-papel: #fcfaf9;
+    --texto-principal: #1a1a1a;
+    --texto-secundario: #555555;
+    --blanco: #ffffff;
+}
+body {
+    background-color: var(--fondo-papel);
+    background-image: radial-gradient(var(--rosa-claro) 1px, transparent 1px);
+    background-size: 30px 30px;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding-top: 100px; /* Espacio para que el nav fijo no tape el contenido */
+}
+/* =========================================
+   NAVEGACIÓN SUPERIOR (Header)
+   ========================================= */
+.header-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(252, 250, 249, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--rosa-claro);
+}
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+}
+.logo {
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: var(--rosa-oscuro);
+    border: 2px solid var(--rosa-oscuro);
+    padding: 2px 8px;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--texto-secundario);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+/* Estilo de "navegación": línea que crece desde el centro */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--rosa-oscuro);
+    transition: all 0.3s ease;
+}
+.nav-links a:hover, .nav-links a.active {
+    color: var(--rosa-oscuro);
+}
+.nav-links a:hover::after, .nav-links a.active::after {
+    width: 100%;
+    left: 0;
+}
+/* =========================================
+   CONTENEDOR EDITORIAL
+   ========================================= */
+.contenedor-principal {
+    background-color: var(--blanco);
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    padding: 80px 60px;
+    box-shadow: 20px 20px 0px var(--rosa-claro);
+    border: 1px solid #eee;
+}
+h1 {
+    font-family: 'Georgia', serif;
+    font-size: 52px;
+    color: var(--rosa-oscuro);
+    margin: 0;
+    line-height: 1;
+}
+h2 {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-weight: normal;
+    color: var(--rosa-claro);
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+p {
+    color: var(--texto-secundario);
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: justify;
+}
+/* =========================================
+   BOTÓN EXTERNO (Estilo Geométrico Único)
+   ========================================= */
+.seccion-cta {
+    margin: 40px 0;
+}
+.boton-grafico-externo {
+    display: inline-block;
+    padding: 18px 40px;
+    color: var(--rosa-oscuro);
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border: 3px solid var(--rosa-oscuro);
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s;
+    z-index: 1;
+}
+.boton-grafico-externo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--rosa-oscuro);
+    transition: left 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+    z-index: -1;
+}
+.boton-grafico-externo:hover {
+    color: var(--blanco);
+}
+.boton-grafico-externo:hover::before {
+    left: 0;
+}
+/* =========================================
+   IMÁGENES Y MEDIA
+   ========================================= */
+.imagen-container {
+    margin: 50px 0;
+}
+.imagen-lirio {
+    width: 100%;
+    filter: sepia(20%); /* Toque vintage de diseño */
+    transition: filter 0.5s ease;
+}
+.imagen-lirio:hover {
+    filter: sepia(0%);
+}
+.audio-container {
+    border-top: 2px dashed var(--rosa-claro);
+    padding-top: 40px;
+    margin-top: 40px;
+}
+.audio-container h3 {
+    font-family: 'Georgia', serif;
+    color: var(--rosa-oscuro);
+}
+/* =========================================
+   VIDEO DE YOUTUBE
+   ========================================= */
+.video-seccion {
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 2px dashed var(--rosa-claro); /* Línea divisoria */
+}
+.video-seccion h3 {
+    font-family: 'Georgia', serif;
+    color: var(--rosa-oscuro);
+    margin-bottom: 25px;
+}
+/* Contenedor inteligente para que el video se adapte a celulares y pantallas grandes */
+.video-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporción 16:9 exacta */
+    height: 0;
+    overflow: hidden;
+    border: 4px solid var(--texto-principal); /* Marco oscuro y definido */
+    box-shadow: 15px 15px 0px var(--rosa-claro); /* Sombra sólida de diseño */
+    background-color: #000;
+}
+/* El iframe ocupa todo el contenedor responsivo */
+.video-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
