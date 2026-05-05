@@ -205,3 +205,46 @@ p {
     width: 100%;
     height: 100%;
 }
+/* =========================================
+   CAJA DE INFORMACIÓN (Página 3)
+   ========================================= */
+.caja-informacion-original {
+    position: relative;
+    padding: 40px;
+    margin: 60px auto;
+    background-color: var(--blanco);
+    border: 2px solid var(--texto-principal); /* Borde fuerte y contrastante */
+    text-align: left;
+    /* Z-index para asegurar que no se oculte tras otros elementos */
+    z-index: 1; 
+}
+
+/* Pseudo-elemento para crear el "desfase" geométrico por detrás de la caja */
+.caja-informacion-original::after {
+    content: '';
+    position: absolute;
+    top: 15px; 
+    left: 15px; 
+    right: -15px; 
+    bottom: -15px;
+    border: 2px dashed var(--rosa-oscuro); /* Borde punteado estilo diseño */
+    z-index: -1; /* Lo manda por detrás de la caja blanca */
+}
+
+.caja-informacion-original h3 {
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: var(--texto-principal);
+    border-bottom: 2px solid var(--rosa-claro);
+    display: inline-block;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    font-family: 'Georgia', serif;
+}
+
+.caja-informacion-original p {
+    text-align: left;
+    color: var(--texto-secundario);
+    margin-bottom: 0;
+}
